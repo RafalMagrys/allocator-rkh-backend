@@ -339,7 +339,7 @@ export class DatacapAllocator extends AggregateRoot {
         return new RKHApprovalCompleted(this.guid, this.applicationInstructions);
       }
 
-      return new RKHApprovalStarted(this.guid, 2); // TODO: Hardcoded 2 for multisig threshold
+      return new RKHApprovalStarted(this.guid, this.allocatorMultisigThreshold ?? 2);
     };
 
     this.applyChange(action());
